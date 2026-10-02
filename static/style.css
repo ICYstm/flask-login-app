@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    width: 340px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.tab-btn.active {
+    background-color: #667eea;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #5364c7;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.logout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #e63939;
+}
+
+.link-text {
+    display: inline-block;
+    margin-top: 10px;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.link-text:hover {
+    text-decoration: underline;
+}

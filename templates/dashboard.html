@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Hello, <span id="displayNameHeader">{{ name }}</span>!</h2>
+        <p>Email: {{ email }}</p>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+        <h3>Edit Profile</h3>
+        <form id="profileForm">
+            <label for="displayName">Display Name</label>
+            <input type="text" id="displayName" value="{{ name }}" required>
+            <button type="submit" style="margin-top: 10px;">Save Name</button>
+        </form>
+
+        <p id="dashMessage"></p>
+
+        <a href="/logout" class="logout-btn">Log Out</a>
+    </div>
+
+    <script>
+        const profileForm = document.getElementById("profileForm");
+        if (profileForm) {
+            profileForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                const name = document.getElementById("displayName").value;
+                const msg = document.getElementById("dashMessage");
+
+                const res = await fetch("/update-profile", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ display_name: name })
+                });
+
+                const data = await res.json();
+                msg.textContent = data.message;
+                msg.style.color = data.success ? "green" : "red";
+                if (data.success) {
+                    document.getElementById("displayNameHeader").textContent = name;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
